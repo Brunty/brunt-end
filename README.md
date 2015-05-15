@@ -16,4 +16,5 @@ With the mixins, you can use the grid-column() mixin to get the width of the ite
     @include breakpoint('large') {
         @include grid-column(2, 12, false); // doesn't add the grid-gutters
     }
-}`
+}
+```
