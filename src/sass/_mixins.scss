@@ -40,10 +40,33 @@
     @return percentage($colspan / $totalcols);
 }
 
-@mixin grid-column($colspan: 1, $totalcols: 12, $gutters: true) {
+@mixin grid-column(
+            $colspan: 1,
+            $totalcols: 12,
+            $offset: false,
+            $push: false,
+            $pull: false,
+            $center: false,
+            $gutters: true
+        ) {
     width: grid-calc($colspan, $totalcols);
     @if ($gutters) {
         @include grid-gutter();
+    }
+    @if ($offset) {
+        margin-left: grid-calc($offset, $totalcols);
+    }
+    @if ($push) {
+        right: auto;
+        left: grid-calc($colspan, $totalcols);
+    }
+    @if ($pull) {
+        right: grid-calc($colspan, $totalcols);
+        left: auto;
+    }
+    @if ($center) {
+        margin: 0 auto;
+        float: none;
     }
 }
 

@@ -2,6 +2,7 @@
 
 This is a few front-end SASS files that allow a flexible grid system, along with visibility classes and breakpoints (plus mixins for media queries)
 
+Currently it's all a bit experimental and hasn't been fully tested.
 
 ## The Grid
 
@@ -50,13 +51,13 @@ With the mixins, you can use the grid-column() mixin to get the width of the ite
 ```
 .my-awesome-thing {
     @include breakpoint('small') {
-        @include grid-column(1, 5); // inside this MQ it's equivalent to .small-1-of-5
+        @include grid-column($colspan: 1, $totalcols: 5); // inside this MQ it's equivalent to .small-1-of-5
     }
     @include breakpoint('medium') {
-        @include grid-column(2, 12);
+        @include grid-column($colspan: 2, $totalcols: 12);
     }
     @include breakpoint('large') {
-        @include grid-column(2, 12, false); // doesn't add the grid-gutters
+        @include grid-column($colspan: 2, $totalcols: 12, $gutters: false); // doesn't add the grid-gutters
     }
 }
 ```
