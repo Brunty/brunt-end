@@ -1,6 +1,6 @@
 # Brunt-End
 
-This is a few front-end SASS files that allow a flexible grid system, along with visibility classes and breakpoints (plus mixins for media queries)
+This is a few front-end SASS files that allow a flexible grid system, along with mixins to access specified breakpoints.
 
 **NOTE: Currently it's all a bit experimental and hasn't been fully tested.**
 
@@ -48,7 +48,7 @@ If you add different column counts, or breakpoints with new names, you can refer
 ### Mixins
 With the mixins, you can use the grid-column() mixin to get the width of the item, along with the breakpoint() mixin this gives you full control to add grid functionality to your own classes.
 
-```
+```SCSS
 .my-awesome-thing {
     @include breakpoint('small') {
         @include grid-column($colspan: 1, $totalcols: 5); // inside this MQ it's equivalent to .small-1-of-5
