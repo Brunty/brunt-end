@@ -2,7 +2,7 @@
 
 This is a few front-end SASS files that allow a flexible grid system, along with visibility classes and breakpoints (plus mixins for media queries)
 
-** NOTE: Currently it's all a bit experimental and hasn't been fully tested.**
+**NOTE: Currently it's all a bit experimental and hasn't been fully tested.**
 
 ## The Grid
 
