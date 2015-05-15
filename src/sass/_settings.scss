@@ -1,7 +1,7 @@
 $column-gutter: 26px !default;
 $default-padding: $column-gutter / 2 !default;
 $max-row-width: 1280px !default;
-
+$include-grid-classes: true !default;
 
 /*
     How many different grid sets do we want? A single 12 column grid? A 12 column AND a 5 column? Up to you!

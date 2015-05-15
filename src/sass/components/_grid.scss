@@ -64,56 +64,58 @@ $gutters: true
     right: auto;
 }
 
-/*
-    Examples of class names this will generate:
-    .small-1-of-5
-    .l-medium-3-of-5
-    .x-large-5-of-12
-    .xx-large-7-of-12
-*/
-@each $breakpoint-name, $breakpoint-size in $breakpoints {
-    @media #{$breakpoint-size} {
-        @each $totalcols in $grid-column-sets {
-            @for $colspan from 1 through $totalcols {
-                .#{$breakpoint-name}-#{$colspan}-of-#{$totalcols} {
-                    @include grid-column($colspan, $totalcols, $gutters: false);
-                }
+@if ($include-grid-classes) {
+    /*
+        Examples of class names this will generate:
+        .small-1-of-5
+        .l-medium-3-of-5
+        .x-large-5-of-12
+        .xx-large-7-of-12
+    */
+    @each $breakpoint-name, $breakpoint-size in $breakpoints {
+        @media #{$breakpoint-size} {
+            @each $totalcols in $grid-column-sets {
+                @for $colspan from 1 through $totalcols {
+                    .#{$breakpoint-name}-#{$colspan}-of-#{$totalcols} {
+                        @include grid-column($colspan, $totalcols, $gutters: false);
+                    }
 
-                .#{$breakpoint-name}-push-#{$colspan}-of-#{$totalcols} {
-                    right: auto;
-                    left: grid-calc($colspan, $totalcols);
-                }
+                    .#{$breakpoint-name}-push-#{$colspan}-of-#{$totalcols} {
+                        right: auto;
+                        left: grid-calc($colspan, $totalcols);
+                    }
 
-                .#{$breakpoint-name}-pull-#{$colspan}-of-#{$totalcols} {
-                    right: grid-calc($colspan, $totalcols);
-                    left: auto;
-                }
-                .#{$breakpoint-name}-push-reset,
-                .#{$breakpoint-name}-pull-reset {
-                    @include push-pull-reset;
+                    .#{$breakpoint-name}-pull-#{$colspan}-of-#{$totalcols} {
+                        right: grid-calc($colspan, $totalcols);
+                        left: auto;
+                    }
+                    .#{$breakpoint-name}-push-reset,
+                    .#{$breakpoint-name}-pull-reset {
+                        @include push-pull-reset;
+                    }
                 }
             }
         }
     }
-}
 
-.grid-row {
-    @include grid-row;
-    @include clearfix;
-}
+    .grid-row {
+        @include grid-row;
+        @include clearfix;
+    }
 
-.grid-row .grid-row {
-    @include grid-row-nested
-}
+    .grid-row .grid-row {
+        @include grid-row-nested
+    }
 
-.grid-column {
-    @include grid-gutter();
-}
+    .grid-column {
+        @include grid-gutter();
+    }
 
-.collapsed .grid-column {
-    @include grid-gutter($collapsed: true);
-}
+    .collapsed .grid-column {
+        @include grid-gutter($collapsed: true);
+    }
 
-.not-collapsed .grid-column {
-    @include grid-gutter();
+    .not-collapsed .grid-column {
+        @include grid-gutter();
+    }
 }
