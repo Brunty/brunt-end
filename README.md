@@ -9,7 +9,7 @@ This is a few front-end SASS files that allow a flexible grid system, along with
 The grid is... whatever you want it to be. You have 2 main things to focus on for the grid really. The number of columns in your grid (you can have multiple grids of differing column counts) and the breakpoints for the grid.
 
 In `_settings.scss` you'll find two maps (You can override these - these are just the default):
-```
+```SCSS
 $grid-column-sets: (
         5,
         12
@@ -20,7 +20,7 @@ This means we'll have 2 grids running, one of 5 columns, one of 12.
 
 You'll also find:
 
-```
+```SCSS
 $breakpoints: (
         small: "only screen",
         s-medium: "only screen and (min-width: 481px)",
