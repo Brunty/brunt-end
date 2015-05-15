@@ -7,10 +7,20 @@
 */
 @each $breakpoint-name, $breakpoint-size in $breakpoints {
     @media #{$breakpoint-size} {
-        @each $grid-column-number in $grid-column-sets {
-            @for $var from 1 through $grid-column-number {
-                .#{$breakpoint-name}-#{$var}-of-#{$grid-column-number} {
-                    @include grid-column($var, $grid-column-number, false);
+        @each $totalcols in $grid-column-sets {
+            @for $colspan from 1 through $totalcols {
+                .#{$breakpoint-name}-#{$colspan}-of-#{$totalcols} {
+                    @include grid-column($colspan, $totalcols, false);
+                }
+
+                .#{$breakpoint-name}-push-#{$colspan}-of-#{$totalcols} {
+                    right: auto;
+                    left: grid-calc($colspan, $totalcols);
+                }
+
+                .#{$breakpoint-name}-pull-#{$colspan}-of-#{$totalcols} {
+                    right: grid-calc($colspan, $totalcols);
+                    left: auto;
                 }
             }
         }
@@ -19,13 +29,7 @@
 
 .grid-row {
     @include grid-row;
-    &::before, &::after {
-        content: " ";
-        display: table;
-    }
-    &::after {
-        clear: both;
-    }
+    @include clearfix;
 }
 
 .grid-row .grid-row {

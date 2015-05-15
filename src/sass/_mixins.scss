@@ -36,9 +36,18 @@
     max-width: none;
 }
 
+@function grid-calc($colspan: 1, $totalcols: 12) {
+    @return percentage($colspan / $totalcols);
+}
+
 @mixin grid-column($colspan: 1, $totalcols: 12, $gutters: true) {
-    width: ($colspan / $totalcols) * 100%;
+    width: grid-calc($colspan, $totalcols);
     @if ($gutters) {
         @include grid-gutter();
     }
+}
+
+@mixin clearfix {
+    &:before, &:after { content: " "; display: table; }
+    &:after { clear: both; }
 }
