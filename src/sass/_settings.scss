@@ -1,0 +1,27 @@
+$column-gutter: 26px !default;
+$default-padding: $column-gutter / 2 !default;
+$max-row-width: 1280px !default;
+
+
+/*
+    How many different grid sets do we want? A single 12 column grid? A 12 column AND a 5 column? Up to you!
+*/
+$grid-column-sets: (
+        5,
+        12
+) !default;
+
+/*
+    Define our breakpoints with the key of this map being the way you can reference them later on with mixins.
+    You can call them whatever you want, the key is used in the classnames for grid-columns as well.
+*/
+$breakpoints: (
+        small: "only screen",
+        s-medium: "only screen and (min-width: 481px)",
+        medium: "only screen and (min-width: 641px)",
+        l-medium: "only screen and (min-width: 801px)",
+        large: "only screen and (min-width: 1025px)",
+        x-large: "only screen and (min-width: 1281px)",
+        xx-large: "only screen and (min-width: 1441px)",
+        xxx-large: "only screen and (min-width: 1921px)",
+) !default;

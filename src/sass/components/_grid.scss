@@ -1,0 +1,38 @@
+/*
+    Examples of class names this will generate:
+    .small-1-of-5
+    .l-medium-3-of-5
+    .x-large-5-of-12
+    .xx-large-7-of-12
+*/
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media #{$breakpoint-size} {
+        @each $grid-column-number in $grid-column-sets {
+            @for $var from 1 through $grid-column-number {
+                .#{$breakpoint-name}-#{$var}-of-#{$grid-column-number} {
+                    @include grid-column($var, $grid-column-number, false);
+                }
+            }
+        }
+    }
+}
+
+.grid-row {
+    @include grid-row
+}
+
+.grid-row .grid-row {
+    @include grid-row-nested
+}
+
+.grid-column {
+    @include grid-gutter();
+}
+
+.collapsed .grid-column {
+    @include grid-gutter($collapsed: true);
+}
+
+.not-collapsed .grid-column {
+    @include grid-gutter();
+}

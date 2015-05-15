@@ -1,0 +1,45 @@
+/*
+    Gets the media query for our breakpoint specified in the $breakpoints map (array) above.
+*/
+
+@mixin breakpoint($breakpoint: "small") {
+    $breakpointMediaQuery: map-get($breakpoints, $breakpoint);
+    @media #{$breakpointMediaQuery} {
+        @content
+    }
+}
+
+
+@mixin grid-gutter($collapsed: false) {
+    float: left;
+    position: relative;
+    @if ($collapsed == false) {
+        padding: 0 ($column-gutter / 2);
+    }
+    @if ($collapsed == true) {
+        padding: 0 0;
+    }
+}
+
+/*
+    TODO: these should be a single mixin
+*/
+@mixin grid-row {
+    margin: 0 auto;
+    max-width: $max-row-width;
+    width: 100%;
+}
+
+@mixin grid-row-nested {
+    width: auto;
+    margin-left: 0 - ($column-gutter / 2);
+    margin-right: 0 - ($column-gutter / 2);
+    max-width: none;
+}
+
+@mixin grid-column($colspan: 1, $totalcols: 12, $gutters: true) {
+    width: ($colspan / $totalcols) * 100%;
+    @if ($gutters) {
+        @include grid-gutter();
+    }
+}
