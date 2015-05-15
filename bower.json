@@ -1,11 +1,11 @@
 {
   "name": "brunt-end",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "brunty <matt@mfyu.co.uk>"
   ],
   "description": "A few little SASS files for front-end work. A grid system, visiblity classes and break-points with mixins.",
-  "main": "/dist/css/bruntend.min.css",
+  "main": "dist/css/main.min.css",
   "keywords": [
     "SASS",
     "SCSS",
