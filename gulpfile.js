@@ -15,7 +15,7 @@ gulp.task('sass:build', function() {
     var sassConfig = {
         sourcemap: true,
         bundleExec: true,
-        style: 'compressed'
+        style: 'compact'
     };
 
     return sass('src/sass/main.scss', sassConfig)
@@ -31,5 +31,5 @@ gulp.task('sass:build', function() {
 });
 
 gulp.task('sass:watch', ['sass:build'], function() {
-    gulp.watch('src/sass/**/*.scss', ['sass:bhild']);
+    gulp.watch('src/sass/**/*.scss', ['sass:build']);
 });

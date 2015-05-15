@@ -1,6 +1,10 @@
 /*
     This kinda thing should be in a normalise file anyway - but if not, throw it in somewhere.
 */
+body {
+    padding: 0;
+    margin: 0;
+}
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

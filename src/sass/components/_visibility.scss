@@ -1,11 +1,13 @@
+/*
+    By default, anything with a visible-for-* class will be hidden
+*/
+*[class^='show-for-'] {
+    display: none;
+}
 
 @each $breakpoint-name, $breakpoint-size in $breakpoints {
-    .visible-for-#{$breakpoint-name}-up {
-        display: none;
-    }
-
     @media #{$breakpoint-size} {
-        .visible-for-#{$breakpoint-name}-up {
+        .show-for-#{$breakpoint-name}-up {
             display: inherit;
         }
     }
