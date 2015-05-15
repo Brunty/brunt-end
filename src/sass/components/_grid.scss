@@ -14,7 +14,7 @@
 */
 @mixin grid-row {
     margin: 0 auto;
-    max-width: $max-row-width;
+    max-width: $row-max-width;
     width: 100%;
 }
 
@@ -101,10 +101,18 @@ $gutters: true
     .grid-row {
         @include grid-row;
         @include clearfix;
+        @if ($row-edge-equal) {
+            padding-left: $column-gutter / 2;
+            padding-right: $column-gutter / 2;
+        }
     }
 
     .grid-row .grid-row {
-        @include grid-row-nested
+        @include grid-row-nested;
+        @if ($row-edge-equal) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
     .grid-column {

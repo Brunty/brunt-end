@@ -1,6 +1,7 @@
 $column-gutter: 26px !default;
 $default-padding: $column-gutter / 2 !default;
-$max-row-width: 1280px !default;
+$row-max-width: 1280px !default;
+$row-edge-equal: true !default;
 $include-grid-classes: true !default;
 
 /*
