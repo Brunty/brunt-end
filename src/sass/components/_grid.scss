@@ -10,7 +10,7 @@
         @each $totalcols in $grid-column-sets {
             @for $colspan from 1 through $totalcols {
                 .#{$breakpoint-name}-#{$colspan}-of-#{$totalcols} {
-                    @include grid-column($colspan, $totalcols, false);
+                    @include grid-column($colspan, $totalcols, $gutters: false);
                 }
 
                 .#{$breakpoint-name}-push-#{$colspan}-of-#{$totalcols} {
@@ -21,6 +21,11 @@
                 .#{$breakpoint-name}-pull-#{$colspan}-of-#{$totalcols} {
                     right: grid-calc($colspan, $totalcols);
                     left: auto;
+                }
+                .#{$breakpoint-name}-push-reset,
+                .#{$breakpoint-name}-pull-reset {
+                    left: auto;
+                    right: auto;
                 }
             }
         }
