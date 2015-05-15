@@ -1,0 +1,12 @@
+
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+    .visible-for-#{$breakpoint-name}-up {
+        display: none;
+    }
+
+    @media #{$breakpoint-size} {
+        .visible-for-#{$breakpoint-name}-up {
+            display: inherit;
+        }
+    }
+}

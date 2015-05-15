@@ -1,2 +1,4 @@
 .dashbrew
-.idea
+.idea/
+node_modules/
+.sass-cache/
