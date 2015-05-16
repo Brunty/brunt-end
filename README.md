@@ -4,6 +4,12 @@ This is a few front-end SASS files that allow a flexible grid system, along with
 
 **NOTE: Currently it's all a bit experimental and hasn't been fully tested.**
 
+## Installation
+
+You can install this package through bower
+
+`bower install brunt-end`
+
 ## The Grid
 
 The grid is... whatever you want it to be. You have 2 main things to focus on for the grid really. The number of columns in your grid (you can have multiple grids of differing column counts) and the breakpoints for the grid.
